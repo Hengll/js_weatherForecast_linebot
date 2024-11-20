@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export default async event => {
+(async () => {
   const areaUrl = {
     宜蘭縣: 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-003?Authorization=CWA-3538B9F3-1190-4861-8523-3E66C9639ED8&format=JSON',
     桃園市: 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-007?Authorization=CWA-3538B9F3-1190-4861-8523-3E66C9639ED8&format=JSON',
@@ -30,6 +30,17 @@ export default async event => {
     金門縣: 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-087?Authorization=CWA-3538B9F3-1190-4861-8523-3E66C9639ED8&format=JSON'
   }
 
-  const { data } = await axios.get(areaUrl[event.message.text])
-  const location = data.records.locations[0].location
-}
+  const area = '新北市'
+  const smallarea = '泰山區'
+  const { data } = await axios.get(areaUrl[area])
+  const locations = data.records.locations[0].location
+  const location = []
+
+  for (let i = 0; i < locations.length; i++) {
+    if (locations[i].locationName === smallarea) {
+      location.push(locations[i].weatherElement)
+    }
+  }
+
+  console.log(location)
+})()
