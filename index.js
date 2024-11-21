@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import linebot from 'linebot'
 import flexText from './commands/flexText.js'
+import flexLocation from './commands/flexLocation.js'
 
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -13,7 +14,8 @@ bot.on('message', event => {
   if (event.message.type === 'text') {
     flexText(event)
   } else if (event.message.type === 'location') {
-    console.log(1)
+    console.log(event)
+    flexLocation(event)
   }
 })
 

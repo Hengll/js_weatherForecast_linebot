@@ -35,15 +35,16 @@ export default async (event) => {
     }
 
     // ex.新北市
-    const area = event.message.text.slice(0, 3)
+    const area = event.message.address.slice(5, 8)
     // ex.泰山區
-    const smallarea = event.message.text.slice(3)
+    const smallarea = event.message.address.slice(8, 11)
 
     const { data } = await axios.get(areaUrl[area])
     const locations = data.records.locations[0].location
     const location = []
 
     for (let i = 0; i < locations.length; i++) {
+      console.log(`${locations[i].locationName}?${smallarea}`)
       if (locations[i].locationName === smallarea) {
         location.push(locations[i].weatherElement)
       }
@@ -58,7 +59,7 @@ export default async (event) => {
 
     for (let i = 0; i < 12; i++) {
       const b = template()
-      b.header.contents[0].text = event.message.text
+      b.header.contents[0].text = area + smallarea
       b.header.contents[2].text = location[0][0].time[i].startTime.split(' ')[0]
 
       if (location[0][0].time[i].startTime.split(' ')[1] === '06:00:00' ||
