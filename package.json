@@ -14,8 +14,7 @@
   "dependencies": {
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
-    "linebot": "^1.6.1",
-    "puppeteer": "^23.8.0"
+    "linebot": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
