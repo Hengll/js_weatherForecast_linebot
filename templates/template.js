@@ -1,214 +1,101 @@
-export default async () => {
+export default () => {
   return {
     type: 'bubble',
-    body: {
+    size: 'hecto',
+    header: {
       type: 'box',
       layout: 'vertical',
       contents: [
         {
           type: 'text',
-          text: 'RECEIPT',
-          weight: 'bold',
-          color: '#1DB446',
-          size: 'sm'
+          text: '新北市泰山區',
+          color: '#FFFFFF',
+          align: 'center',
+          size: '3xl',
+          gravity: 'center',
+          weight: 'bold'
+        },
+        {
+          type: 'separator'
         },
         {
           type: 'text',
-          text: 'Brown Store',
-          weight: 'bold',
-          size: 'xxl',
-          margin: 'md'
+          color: '#FFFFFF',
+          align: 'center',
+          size: 'lg',
+          gravity: 'center',
+          text: '2024-11-21',
+          margin: 'lg'
         },
         {
           type: 'text',
-          text: 'Flex Tower, 7-7-4 Midori-ku, Tokyo',
-          size: 'xs',
-          color: '#aaaaaa',
-          wrap: true
-        },
-        {
-          type: 'separator',
-          margin: 'xxl'
-        },
+          color: '#FFFFFF',
+          align: 'center',
+          size: 'lg',
+          gravity: 'center',
+          text: '白天(06:00~18:00)',
+          margin: 'lg'
+        }
+      ],
+      backgroundColor: '#27ACB2',
+      paddingTop: '19px',
+      paddingAll: '12px',
+      paddingBottom: '16px',
+      background: {
+        type: 'linearGradient',
+        angle: '45deg',
+        startColor: '#5ADFE5',
+        endColor: '#0367D3'
+      }
+    },
+    body: {
+      type: 'box',
+      layout: 'vertical',
+      contents: [
         {
           type: 'box',
-          layout: 'vertical',
-          margin: 'xxl',
-          spacing: 'sm',
+          layout: 'horizontal',
           contents: [
             {
-              type: 'box',
-              layout: 'horizontal',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'Energy Drink',
-                  size: 'sm',
-                  color: '#555555',
-                  flex: 0
-                },
-                {
-                  type: 'text',
-                  text: '$2.99',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
+              type: 'text',
+              text: '陰短暫雨',
+              color: '#000000',
+              size: 'sm',
+              wrap: true,
+              flex: 0
             },
             {
-              type: 'box',
-              layout: 'horizontal',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'Chewing Gum',
-                  size: 'sm',
-                  color: '#555555',
-                  flex: 0
-                },
-                {
-                  type: 'text',
-                  text: '$0.99',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'horizontal',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'Bottled Water',
-                  size: 'sm',
-                  color: '#555555',
-                  flex: 0
-                },
-                {
-                  type: 'text',
-                  text: '$3.33',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
-            },
-            {
-              type: 'separator',
-              margin: 'xxl'
-            },
-            {
-              type: 'box',
-              layout: 'horizontal',
-              margin: 'xxl',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'ITEMS',
-                  size: 'sm',
-                  color: '#555555'
-                },
-                {
-                  type: 'text',
-                  text: '3',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'horizontal',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'TOTAL',
-                  size: 'sm',
-                  color: '#555555'
-                },
-                {
-                  type: 'text',
-                  text: '$7.31',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'horizontal',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'CASH',
-                  size: 'sm',
-                  color: '#555555'
-                },
-                {
-                  type: 'text',
-                  text: '$8.0',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'horizontal',
-              contents: [
-                {
-                  type: 'text',
-                  text: 'CHANGE',
-                  size: 'sm',
-                  color: '#555555'
-                },
-                {
-                  type: 'text',
-                  text: '$0.69',
-                  size: 'sm',
-                  color: '#111111',
-                  align: 'end'
-                }
-              ]
+              type: 'image',
+              url: 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/08.svg',
+              size: '18px',
+              flex: 0,
+              margin: '2px'
             }
-          ]
-        },
-        {
-          type: 'separator',
-          margin: 'xxl'
+          ],
+          flex: 0
         },
         {
           type: 'box',
           layout: 'horizontal',
-          margin: 'md',
           contents: [
             {
               type: 'text',
-              text: 'PAYMENT ID',
-              size: 'xs',
-              color: '#aaaaaa',
-              flex: 0
-            },
-            {
-              type: 'text',
-              text: '#743289384279',
-              color: '#aaaaaa',
-              size: 'xs',
-              align: 'end'
+              text: '降雨機率 60%\n溫度攝氏19至20度\n稍有寒意至舒適\n東北風 風速<= 1級(每秒2公尺)\n相對濕度88%\n',
+              color: '#000000',
+              size: 'sm',
+              wrap: true
             }
-          ]
+          ],
+          flex: 0,
+          offsetTop: '-8px'
         }
-      ]
+      ],
+      spacing: 'md',
+      paddingAll: '12px'
     },
     styles: {
       footer: {
-        separator: true
+        separator: false
       }
     }
   }

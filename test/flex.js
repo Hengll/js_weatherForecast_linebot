@@ -42,5 +42,9 @@ import axios from 'axios';
     }
   }
 
-  console.log(location)
+  console.log(location[0][0].time[1].startTime.split(' ')[0])
+  console.log(location[0][0].time[1].startTime.split(' ')[1])
+  console.log(location[0][6].time[1].elementValue[0].value)
+  console.log(location[0][10].time[1].elementValue[0].value.split('。').slice(1).join('\n'))
+  // console.log(location)
 })()

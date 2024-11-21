@@ -1,5 +1,6 @@
 import axios from 'axios'
-// import fs from 'node:fs'
+import template from '../templates/template.js'
+import fs from 'node:fs'
 
 export default async (event) => {
   try {
@@ -51,18 +52,50 @@ export default async (event) => {
       throw new Error('鄉鎮市區輸入錯誤')
     }
 
-    // if (process.env.DEBUG === 'true' && result.message) {
-    //   從主程式位置
-    //   fs.writeFileSync('./dump/fe.json', JSON.stringify(courses, null, 2))
-    // }
-    console.log(location)
+    const bubble = []
+
+    for (let i = 0; i < 12; i++) {
+      const b = template()
+      b.header.contents[0].text = event.message.text
+      b.header.contents[2].text = location[0][0].time[i].startTime.split(' ')[0]
+
+      if (location[0][0].time[i].startTime.split(' ')[1] === '06:00:00' ||
+        location[0][0].time[i].startTime.split(' ')[1] === '12:00:00') {
+        b.header.contents[3].text = `(白天)${location[0][0].time[i].startTime.split(' ')[1].slice(0, 5)}~${location[0][0].time[i + 1].startTime.split(' ')[1].slice(0, 4)}`
+      } else {
+        b.header.contents[3].text = `(晚上)${location[0][0].time[i].startTime.split(' ')[1].slice(0, 5)}~${location[0][0].time[i + 1].startTime.split(' ')[1].slice(0, 4)}`
+      }
+
+      b.body.contents[0].contents[0].text = location[0][6].time[i].elementValue[0].value
+      // 圖片先不改
+      b.body.contents[1].contents[0].text = location[0][10].time[i].elementValue[0].value.split('。').slice(1).join('\n')
+      bubble.push(b)
+    }
+
+    console.log(bubble)
+
+    const result = event.reply({
+      type: 'flex',
+      altText: '天氣查詢結果',
+      contents: {
+        type: 'carousel',
+        contents: bubble
+      }
+    })
+
+    console.log(result)
+
+    if (process.env.DEBUG === 'true') {
+      // 從主程式位置
+      fs.writeFileSync('./dump/fe.json', JSON.stringify(bubble, null, 2))
+    }
   } catch (err) {
     if (err.message === 'Invalid URL') {
       event.reply('縣市輸入錯誤')
     } else if (err.message === '鄉鎮市區輸入錯誤') {
       event.reply('鄉鎮市區輸入錯誤')
     } else {
-      console.log(err.message)
+      console.log(err)
     }
   }
 }
