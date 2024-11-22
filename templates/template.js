@@ -71,7 +71,8 @@ export default () => {
               url: 'https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/11.png',
               size: '18px',
               flex: 0,
-              margin: '2px'
+              margin: '2px',
+              offsetTop: '2px'
             }
           ],
           flex: 0
