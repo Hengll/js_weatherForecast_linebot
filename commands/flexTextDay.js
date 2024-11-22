@@ -84,7 +84,12 @@ export default async (event) => {
         }
 
         b.body.contents[0].contents[0].text = location[0][0].time[i].elementValue[0].value
-        b.body.contents[1].contents[0].text = location[0][1].time[i].elementValue[0].value.split('。').slice(1).join('\n')
+        b.body.contents[1].contents[1].text = location[0][1].time[i].elementValue[0].value.split('。').slice(1).join('\n')
+
+        if (!location[0][1].time[i].elementValue[0].value.match(/降雨機率/)) {
+          b.body.contents[1].contents[0].contents.splice(0, 1)
+          b.body.contents[1].contents[0].offsetTop = '0px'
+        }
         bubble.push(b)
       }
     }
