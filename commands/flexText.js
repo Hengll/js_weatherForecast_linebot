@@ -65,11 +65,13 @@ export default async (event) => {
         location[0][0].time[i].startTime.split(' ')[1] === '12:00:00') {
         b.header.contents[3].text = `(白天)${location[0][0].time[i].startTime.split(' ')[1].slice(0, 5)}~${location[0][0].time[i].endTime.split(' ')[1].slice(0, 5)}`
         // 白天的圖片
-        b.body.contents[0].contents[1].url = weatherIcons[location[0][0].time[i].elementValue[0].value].day
+        b.body.contents[0].contents[1].url =
+          `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/day/png/${weatherIcons[location[0][0].time[i].elementValue[0].value]}.png`
       } else {
         b.header.contents[3].text = `(晚上)${location[0][0].time[i].startTime.split(' ')[1].slice(0, 5)}~${location[0][0].time[i].endTime.split(' ')[1].slice(0, 5)}`
         // 晚上的圖片
-        b.body.contents[0].contents[1].url = weatherIcons[location[0][0].time[i].elementValue[0].value].night
+        b.body.contents[0].contents[1].url =
+          `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/${weatherIcons[location[0][0].time[i].elementValue[0].value]}.png`
       }
 
       b.body.contents[0].contents[0].text = location[0][0].time[i].elementValue[0].value
