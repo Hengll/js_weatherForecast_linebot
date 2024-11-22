@@ -8,7 +8,7 @@ export default () => {
       contents: [
         {
           type: 'image',
-          url: 'https://img.freepik.com/free-vector/beautiful-night-sky-starry-banner-stunning-display-universe_1017-50560.jpg?t=st=1732237717~exp=1732241317~hmac=a159c45f6cd26dbb19dea3ccf3ea08e96aa2bf2d4493e9ea3dda7442b012bad6&w=1380',
+          url: 'https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7728.jpg',
           size: 'full',
           aspectMode: 'cover',
           aspectRatio: '1.5:1'
@@ -19,7 +19,7 @@ export default () => {
           contents: [
             {
               type: 'text',
-              text: '新北市板橋區',
+              text: '台北市大安區',
               color: '#FFFFFF',
               align: 'center',
               size: '3xl',
@@ -44,7 +44,7 @@ export default () => {
               align: 'center',
               size: 'lg',
               gravity: 'center',
-              text: '(晚上)18:00~06:00',
+              text: '(白天)06:00~18:00',
               margin: 'lg'
             }
           ],
@@ -80,7 +80,7 @@ export default () => {
             },
             {
               type: 'image',
-              url: 'https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/11.png',
+              url: 'https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/day/png/11.png',
               size: '18px',
               flex: 0,
               margin: '2px'
@@ -94,7 +94,7 @@ export default () => {
           contents: [
             {
               type: 'text',
-              text: '降雨機率 30%\n溫度攝氏18至19度\n稍有寒意\n偏東風 風速3級(每秒4公尺)\n相對濕度81%\n',
+              text: '降雨機率 30%\n溫度攝氏18至21度\n稍有寒意至舒適\n東北風 風速3級(每秒4公尺)\n相對濕度80%\n',
               color: '#0000FF',
               size: 'sm',
               wrap: true
@@ -102,10 +102,30 @@ export default () => {
           ],
           flex: 0,
           offsetTop: '-8px'
+        },
+        {
+          type: 'box',
+          layout: 'vertical',
+          contents: [
+            {
+              type: 'separator'
+            },
+            {
+              type: 'text',
+              text: '取得天氣資訊，輸入:\n1.OO縣(市)XX鄉(鎮、區...)\n2.line位置資訊',
+              wrap: true,
+              margin: '6px',
+              size: 'xs'
+            }
+          ],
+          position: 'relative',
+          offsetTop: '-12px',
+          paddingAll: '0px'
         }
       ],
       spacing: 'md',
-      paddingAll: '12px'
+      paddingAll: '12px',
+      paddingBottom: '0px'
     },
     styles: {
       footer: {
