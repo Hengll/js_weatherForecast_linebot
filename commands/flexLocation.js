@@ -114,9 +114,9 @@ export default async (event) => {
     }
   } catch (err) {
     if (err.message === 'Invalid URL') {
-      event.reply('縣市輸入錯誤')
+      event.reply('縣市輸入錯誤\n取得天氣預報資訊，請輸入:\n1. OO縣(市)XX鄉(鎮、區...)\n2. line位置資訊')
     } else if (err.message === '鄉鎮市區輸入錯誤') {
-      event.reply('鄉鎮市區輸入錯誤')
+      event.reply('鄉鎮市區輸入錯誤\n取得天氣預報資訊，請輸入:\n1. OO縣(市)XX鄉(鎮、區...)\n2. line位置資訊')
     } else {
       console.log(err)
     }
