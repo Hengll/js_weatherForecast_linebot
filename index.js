@@ -10,11 +10,9 @@ const bot = linebot({
 })
 
 bot.on('message', event => {
-  // console.log(event)
   if (event.message.type === 'text') {
     flexText(event)
   } else if (event.message.type === 'location') {
-    console.log(event)
     flexLocation(event)
   }
 })
