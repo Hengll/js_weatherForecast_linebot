@@ -38,7 +38,7 @@ export default async (event) => {
     // ex.新北市
     const area = (event.message.text.match(/..[縣,市]/) || [''])[0]
     // ex.泰山區
-    const smallarea = (event.message.text.match(/[市,縣].*[鄉,鎮,市,區]/) || [''])[0].slice(1)
+    const smallarea = (event.message.text.match(/[市,縣].*[^鄉,鎮,市,區][鄉,鎮,市,區]/) || [''])[0].slice(1)
     // 要查詢的日期
     const day = event.message.text.match(/..月../)[0].replace('月', '-')
 
