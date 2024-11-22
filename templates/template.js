@@ -8,7 +8,7 @@ export default () => {
       contents: [
         {
           type: 'image',
-          url: 'https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7728.jpg',
+          url: 'https://img.freepik.com/free-vector/beautiful-night-sky-starry-banner-stunning-display-universe_1017-50560.jpg?t=st=1732237717~exp=1732241317~hmac=a159c45f6cd26dbb19dea3ccf3ea08e96aa2bf2d4493e9ea3dda7442b012bad6&w=1380',
           size: 'full',
           aspectMode: 'cover',
           aspectRatio: '1.5:1'
@@ -19,37 +19,25 @@ export default () => {
           contents: [
             {
               type: 'text',
-              text: '台北市大安區',
               color: '#FFFFFF',
               align: 'center',
               size: '3xl',
               gravity: 'center',
-              weight: 'bold'
-            },
-            {
-              type: 'separator'
-            },
-            {
-              type: 'text',
-              color: '#FFFFFF',
-              align: 'center',
-              size: 'lg',
-              gravity: 'center',
-              text: '2024-11-22',
+              text: '11月22日',
               margin: 'lg'
             },
             {
               type: 'text',
               color: '#FFFFFF',
               align: 'center',
-              size: 'lg',
+              size: 'xl',
               gravity: 'center',
-              text: '(白天)06:00~18:00',
+              text: '(晚上)18:00~06:00',
               margin: 'lg'
             }
           ],
           position: 'absolute',
-          offsetStart: 'xl',
+          offsetStart: '30px',
           offsetTop: 'xl'
         }
       ],
@@ -72,7 +60,7 @@ export default () => {
           contents: [
             {
               type: 'text',
-              text: '陰短暫雨',
+              text: '陰天',
               color: '#FF0000',
               size: 'sm',
               wrap: true,
@@ -80,7 +68,7 @@ export default () => {
             },
             {
               type: 'image',
-              url: 'https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/day/png/11.png',
+              url: 'https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/07.png',
               size: '18px',
               flex: 0,
               margin: '2px'
@@ -94,7 +82,7 @@ export default () => {
           contents: [
             {
               type: 'text',
-              text: '降雨機率 30%\n溫度攝氏18至21度\n稍有寒意至舒適\n東北風 風速3級(每秒4公尺)\n相對濕度80%\n',
+              text: '降雨機率 20%\n溫度攝氏18至19度\n稍有寒意\n偏東風 風速2級(每秒3公尺)\n相對濕度68%\n',
               color: '#0000FF',
               size: 'sm',
               wrap: true
@@ -102,25 +90,6 @@ export default () => {
           ],
           flex: 0,
           offsetTop: '-8px'
-        },
-        {
-          type: 'box',
-          layout: 'vertical',
-          contents: [
-            {
-              type: 'separator'
-            },
-            {
-              type: 'text',
-              text: '取得天氣資訊，輸入:\n1. OO縣(市)XX鄉(鎮、區...)\n2. line位置資訊',
-              wrap: true,
-              margin: '6px',
-              size: 'xs'
-            }
-          ],
-          position: 'relative',
-          offsetTop: '-12px',
-          paddingAll: '0px'
         }
       ],
       spacing: 'md',
