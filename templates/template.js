@@ -112,7 +112,7 @@ export default () => {
             },
             {
               type: 'text',
-              text: '取得天氣資訊，輸入:\n1.OO縣(市)XX鄉(鎮、區...)\n2.line位置資訊',
+              text: '取得天氣資訊，輸入:\n1. OO縣(市)XX鄉(鎮、區...)\n2. line位置資訊',
               wrap: true,
               margin: '6px',
               size: 'xs'
