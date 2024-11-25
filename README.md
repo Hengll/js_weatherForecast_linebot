@@ -4,7 +4,8 @@
 
 ## line bot ID
 
-@903kztha
+ID : @903kztha<br>
+QRcode :<br>
 ![903kztha](./imgs/903kztha.png)
 
 
