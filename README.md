@@ -5,7 +5,7 @@
 ## line bot ID
 
 @903kztha
-![903kztha](https://hackmd.io/_uploads/ryQrRIZQkg.png)
+![903kztha](./imgs/903kztha.png)
 
 
 ## 使用說明
@@ -14,7 +14,7 @@
 2.輸入 OO縣(市)XX鄉(鎮、市、區)
 >ex:新北市泰山區
 
-![擷取](https://hackmd.io/_uploads/H17ZnAZXkg.png)
+![擷取](./imgs/123.PNG)
 
 回傳該地區今天的天氣預報
 
