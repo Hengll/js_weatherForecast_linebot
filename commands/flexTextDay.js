@@ -43,12 +43,12 @@ export default async (event) => {
     const day = event.message.text.match(/..月../)[0].replace('月', '-')
 
     const { data } = await axios.get(areaUrl[area])
-    const locations = data.records.locations[0].location
+    const locations = data.records.Locations[0].Location
     const location = []
 
     for (let i = 0; i < locations.length; i++) {
-      if (locations[i].locationName === smallarea) {
-        location.push(locations[i].weatherElement)
+      if (locations[i].LocationName === smallarea) {
+        location.push(locations[i].WeatherElement)
       }
     }
 
@@ -61,32 +61,32 @@ export default async (event) => {
 
     // 修改並建立bubble
     for (let i = 0; i < 14; i++) {
-      if (location[0][0].time[i].startTime.slice(5, 10) === day) {
+      if (location[0][0].Time[i].StartTime.slice(5, 10) === day) {
         const b = template()
-        b.header.contents[1].contents[0].text = `${location[0][0].time[i].startTime.slice(5, 10)}日`.replace('-', '月')
+        b.header.contents[1].contents[0].text = `${location[0][0].Time[i].StartTime.slice(5, 10)}日`.replace('-', '月')
 
-        if (location[0][0].time[i].startTime.split(' ')[1] === '06:00:00' ||
-          location[0][0].time[i].startTime.split(' ')[1] === '12:00:00') {
+        if (location[0][0].Time[i].StartTime.split(' ')[1] === '06:00:00' ||
+          location[0][0].Time[i].StartTime.split(' ')[1] === '12:00:00') {
           b.header.contents[0].url = 'https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7728.jpg'
-          b.header.contents[1].contents[1].text = `(白天)${location[0][0].time[i].startTime.split(' ')[1].slice(0, 5)}~${location[0][0].time[i].endTime.split(' ')[1].slice(0, 5)}`
+          b.header.contents[1].contents[1].text = `(白天)${location[0][0].Time[i].StartTime.split(' ')[1].slice(0, 5)}~${location[0][0].Time[i].EndTime.split(' ')[1].slice(0, 5)}`
           // 白天的圖片
           b.body.contents[0].contents[1].url =
-            `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/day/png/${weatherIcons[location[0][0].time[i].elementValue[0].value]}.png`
+            `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/day/png/${weatherIcons[location[0][0].Time[i].ElementValue[0].Weather]}.png`
           // 白天的字體顏色改黑色
           b.header.contents[1].contents[0].color = '#000000'
           b.header.contents[1].contents[1].color = '#000000'
         } else {
           b.header.contents[0].url = 'https://img.freepik.com/free-vector/beautiful-night-sky-starry-banner-stunning-display-universe_1017-50560.jpg?t=st=1732237717~exp=1732241317~hmac=a159c45f6cd26dbb19dea3ccf3ea08e96aa2bf2d4493e9ea3dda7442b012bad6&w=1380'
-          b.header.contents[1].contents[1].text = `(晚上)${location[0][0].time[i].startTime.split(' ')[1].slice(0, 5)}~${location[0][0].time[i].endTime.split(' ')[1].slice(0, 5)}`
+          b.header.contents[1].contents[1].text = `(晚上)${location[0][0].Time[i].StartTime.split(' ')[1].slice(0, 5)}~${location[0][0].Time[i].EndTime.split(' ')[1].slice(0, 5)}`
           // 晚上的圖片
           b.body.contents[0].contents[1].url =
-            `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/${weatherIcons[location[0][0].time[i].elementValue[0].value]}.png`
+            `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/${weatherIcons[location[0][0].Time[i].ElementValue[0].Weather]}.png`
         }
 
-        b.body.contents[0].contents[0].text = location[0][0].time[i].elementValue[0].value
-        b.body.contents[1].contents[1].text = location[0][1].time[i].elementValue[0].value.split('。').slice(1).join('\n')
+        b.body.contents[0].contents[0].text = location[0][0].Time[i].ElementValue[0].Weather
+        b.body.contents[1].contents[1].text = location[0][1].Time[i].ElementValue[0].WeatherDescription.split('。').slice(1).join('\n')
 
-        if (!location[0][1].time[i].elementValue[0].value.match(/降雨機率/)) {
+        if (!location[0][1].Time[i].ElementValue[0].WeatherDescription.match(/降雨機率/)) {
           b.body.contents[1].contents[0].contents.splice(0, 1)
           b.body.contents[1].contents[0].offsetTop = '0px'
         }
@@ -101,10 +101,10 @@ export default async (event) => {
     const qr = []
 
     // 修改並建立qr(快速回覆)
-    for (let i = 0; i < location[0][0].time.length; i += 2) {
+    for (let i = 0; i < location[0][0].Time.length; i += 2) {
       const q = qrItems()
-      q.action.text = area + smallarea + '!' + location[0][0].time[i].startTime.slice(5, 10).replace('-', '月') + '日'
-      q.action.label = location[0][0].time[i].startTime.slice(8, 10) + '日'
+      q.action.text = area + smallarea + '!' + location[0][0].Time[i].StartTime.slice(5, 10).replace('-', '月') + '日'
+      q.action.label = location[0][0].Time[i].StartTime.slice(8, 10) + '日'
       qr.push(q)
     }
 
