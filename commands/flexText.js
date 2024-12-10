@@ -61,7 +61,7 @@ export default async (event) => {
     for (let i = 0; i < 4; i++) {
       if (location[0][0].Time[i].StartTime.slice(5, 10) === location[0][0].Time[0].StartTime.slice(5, 10)) {
         const b = template()
-        b.header.contents[1].contents[0].text = `${location[0][0].time[i].startTime.slice(5, 10)}日`.replace('-', '月')
+        b.header.contents[1].contents[0].text = `${location[0][0].Time[i].StartTime.slice(5, 10)}日`.replace('-', '月')
 
         if (location[0][0].Time[i].StartTime.split(' ')[1] === '06:00:00' ||
           location[0][0].Time[i].StartTime.split(' ')[1] === '12:00:00') {
@@ -90,10 +90,10 @@ export default async (event) => {
     const qr = []
 
     // 修改並建立qr(快速回覆)
-    for (let i = 0; i < location[0][0].time.length; i += 2) {
+    for (let i = 0; i < location[0][0].Time.length; i += 2) {
       const q = qrItems()
-      q.action.text = area + smallarea + '!' + location[0][0].time[i].startTime.slice(5, 10).replace('-', '月') + '日'
-      q.action.label = location[0][0].time[i].startTime.slice(8, 10) + '日'
+      q.action.text = area + smallarea + '!' + location[0][0].Time[i].StartTime.slice(5, 10).replace('-', '月') + '日'
+      q.action.label = location[0][0].Time[i].StartTime.slice(8, 10) + '日'
       qr.push(q)
     }
 
