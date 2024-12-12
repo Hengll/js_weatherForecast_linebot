@@ -63,10 +63,10 @@ export default async (event) => {
         const b = template()
         b.header.contents[1].contents[0].text = `${location[0][0].Time[i].StartTime.slice(5, 10)}日`.replace('-', '月')
 
-        if (location[0][0].Time[i].StartTime.split(' ')[1] === '06:00:00' ||
-          location[0][0].Time[i].StartTime.split(' ')[1] === '12:00:00') {
+        if (location[0][0].Time[i].StartTime.slice(11, 19) === '06:00:00' ||
+          location[0][0].Time[i].StartTime.slice(11, 19) === '12:00:00') {
           b.header.contents[0].url = 'https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7728.jpg'
-          b.header.contents[1].contents[1].text = `(白天)${location[0][0].Time[i].StartTime.split(' ')[1].slice(0, 5)}~${location[0][0].Time[i].EndTime.split(' ')[1].slice(0, 5)}`
+          b.header.contents[1].contents[1].text = `(白天)${location[0][0].Time[i].StartTime.slice(11, 16)}~${location[0][0].Time[i].EndTime.slice(11, 16)}`
           // 白天的圖片
           b.body.contents[0].contents[1].url =
             `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/day/png/${weatherIcons[location[0][0].Time[i].ElementValue[0].Weather]}.png`
@@ -75,7 +75,7 @@ export default async (event) => {
           b.header.contents[1].contents[1].color = '#000000'
         } else {
           b.header.contents[0].url = 'https://img.freepik.com/free-vector/beautiful-night-sky-starry-banner-stunning-display-universe_1017-50560.jpg?t=st=1732237717~exp=1732241317~hmac=a159c45f6cd26dbb19dea3ccf3ea08e96aa2bf2d4493e9ea3dda7442b012bad6&w=1380'
-          b.header.contents[1].contents[1].text = `(晚上)${location[0][0].Time[i].StartTime.split(' ')[1].slice(0, 5)}~${location[0][0].Time[i].EndTime.split(' ')[1].slice(0, 5)}`
+          b.header.contents[1].contents[1].text = `(晚上)${location[0][0].Time[i].StartTime.slice(11, 16)}~${location[0][0].Time[i].EndTime.slice(11, 16)}`
           // 晚上的圖片
           b.body.contents[0].contents[1].url =
             `https://raw.githubusercontent.com/Hengll/js_weatherForecast_linebot/refs/heads/main/weatherIcon/night/png/${weatherIcons[location[0][0].Time[i].ElementValue[0].Weather]}.png`
